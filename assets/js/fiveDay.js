@@ -19,9 +19,8 @@ function futureWeather(city){
         console.log(data)
         
 
-        var hour = ["1","9","17","25","33"]
+        var hour = ["1","9","17","25","33","40",]
         let i = 0
-
            do { (i++)
             var temp = data.list[hour[i]].main.temp
             var humidity = data.list[hour[i]].main.humidity
@@ -45,6 +44,6 @@ function futureWeather(city){
 
             // appending all variables
             div.append(h2,tempTag,humidityTag,weatherTag)
-    }while (i< 4);
+    } while (i<6);
 })
 }
