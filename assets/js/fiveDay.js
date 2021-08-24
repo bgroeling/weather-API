@@ -17,26 +17,34 @@ function futureWeather(city){
         return data.json()
     }).then(function(data){
         console.log(data)
-        var temp = data.list.main.temp
-        var humidity = data.list.main.humidity
-        var windSpeed = data.wind.speed
-        var cityName = data.name
-        var lon = data.coord.long
-        var lat = data.coord.lat
+        
 
-        //h2 element for city name
-        var h2 = document.createElement("h2")
-        h2.innerHTML = cityName
-        // temp
-        var tempTag = document.createElement("p")
-        tempTag.innerHTML = `temperature: ${temp}`
-        // humidity
-        var humidityTag = document.createElement("p")
-        humidityTag.innerHTML = `humidity: ${humidity}`
-        // wind speed
-        var windTag = document.createElement("p")
-        windTag.innerHTML = `wind speed: ${windSpeed}`
-        // appending all variables
-        weatherToday.append(h2,tempTag,humidityTag,windTag)
-    })
+        var hour = ["1","9","17","25","33"]
+        let i = 0
+
+           do { (i++)
+            var temp = data.list[hour[i]].main.temp
+            var humidity = data.list[hour[i]].main.humidity
+            var weather = data.list[hour[i]].weather[0].icon
+            var cityName = data.list[hour[i]].dt_txt
+
+            var div = document.createElement("div")
+            weatherFuture.append(div)
+
+            var h2 = document.createElement("P")
+            h2.innerHTML = cityName
+            // temp
+            var tempTag = document.createElement("p")
+            tempTag.innerHTML = `temperature: ${temp}`
+            // humidity
+            var humidityTag = document.createElement("p")
+            humidityTag.innerHTML = `humidity: ${humidity}`
+            // wind speed
+            var weatherTag = document.createElement("png")
+            weatherTag.innerHTML =`Forecast: ${weather}`
+
+            // appending all variables
+            div.append(h2,tempTag,humidityTag,weatherTag)
+    }while (i< 4);
+})
 }
