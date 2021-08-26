@@ -24,6 +24,10 @@ function todaysWeather(city){
         var windSpeed = data.wind.speed;
         var cityName = data.name;
 
+
+        var div = document.createElement("div")
+            weatherToday.append(div)
+
         //h2 element for city name
         var h2 = document.createElement("h2")
         h2.innerHTML = cityName
@@ -37,6 +41,6 @@ function todaysWeather(city){
         var windTag = document.createElement("p")
         windTag.innerHTML = `wind speed: ${windSpeed}`
         // appending all variables
-        weatherToday.append(h2,tempTag,humidityTag,windTag)
+        div.append(h2,tempTag,humidityTag,windTag)
     })
 }

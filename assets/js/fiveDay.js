@@ -21,9 +21,9 @@ function futureWeather(city){
 
         var hour = ["1","9","17","25","33","40",]
         let i = 0
-           do { (i++)
-            var temp = data.list[hour[i]].main.temp
+           do { (i+= 1)
             var humidity = data.list[hour[i]].main.humidity
+            var temp = data.list[hour[i]].main.temp
             var weather = data.list[hour[i]].weather[0].icon
             var cityName = data.list[hour[i]].dt_txt
 
@@ -39,8 +39,9 @@ function futureWeather(city){
             var humidityTag = document.createElement("p")
             humidityTag.innerHTML = `humidity: ${humidity}`
             // wind speed
-            var weatherTag = document.createElement("png")
-            weatherTag.innerHTML =`Forecast: ${weather}`
+            var weatherTag = document.createElement("IMG")
+            weatherTag.innerHTML = 'http://openweathermap.org/img/wn/'+ weather +'@2x.png'
+            
 
             // appending all variables
             div.append(h2,tempTag,humidityTag,weatherTag)
